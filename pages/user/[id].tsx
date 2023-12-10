@@ -1,15 +1,25 @@
 "use client";
+// Import necessary types from Next.js
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+// Define the user type
+interface User {
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+    avatar: string;
+}
+
 const UserDetails = () => {
     const router = useRouter();
-    const { id } = router.query; // Access the dynamic route parameter
+    const { id } = router.query;
 
-    const [user, setUser] = useState(null);
-    const [prevUserId, setPrevUserId] = useState(null);
-    const [nextUserId, setNextUserId] = useState(null);
+    const [user, setUser] = useState<User | null>(null); // Use the User type here
+    const [prevUserId, setPrevUserId] = useState<number | null>(null);
+    const [nextUserId, setNextUserId] = useState<number | null>(null);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -19,11 +29,11 @@ const UserDetails = () => {
                 setUser(data.data);
 
                 // Fetch previous user
-                const prevId = parseInt(id, 10) - 1;
+                const prevId = parseInt(id as string, 10) - 1;
                 setPrevUserId(prevId > 0 ? prevId : null);
 
                 // Fetch next user
-                const nextId = parseInt(id, 10) + 1;
+                const nextId = parseInt(id as string, 10) + 1;
                 setNextUserId(nextId);
             } catch (error) {
                 console.error("Error fetching user data:", error);
