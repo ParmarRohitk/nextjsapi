@@ -3,6 +3,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // Define the user type
 interface User {
@@ -52,6 +53,9 @@ const UserDetails = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
             <div className="text-center mb-8">
+                <Link href="/">
+                    Go to Home
+                </Link>
                 <h1 className="text-3xl font-bold mb-4">User Details</h1>
                 <table className="w-full border-collapse border border-gray-300">
                     <thead className="bg-gray-200">
