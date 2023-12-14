@@ -88,12 +88,12 @@ const UserDetails = () => {
 
             <div className="flex justify-between w-full">
                 {prevUserId && (
-                    <a href={`/user/${prevUserId}`} className="text-blue-500">
+                    <a href={`/what-we-do/web-development/${prevUserId}`} className="text-blue-500">
                         &lt; Previous
                     </a>
                 )}
                 {nextUserId !== null && (
-                    <a href={`/user/${nextUserId}`} className="text-blue-500">
+                    <a href={`/what-we-do/web-development/${nextUserId}`} className="text-blue-500">
                         Next &gt;
                     </a>
                 )}
