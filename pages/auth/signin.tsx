@@ -10,7 +10,7 @@ const SignIn: React.FC = () => {
     const [password, setPassword] = useState('');
 
     const handleSignIn = async () => {
-        console.log('Hey this is login')
+        console.log('login successfully')
         try {
             const response = await signInApi({ email, password });
             const token = response.token; // Assuming the API response contains a token field

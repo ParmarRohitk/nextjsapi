@@ -14,8 +14,8 @@ const withAuth = (WrappedComponent: FC<{}>) => {
             if (authToken) {
                 router.push('/dashboard');
                 console.log('token found');
-
             } else if (router.pathname === '/auth/signin' || router.pathname === '/auth/signup') {
+                // } else if (router.pathname === '/dashboard') {
                 router.push('/auth/signin');
                 console.log('token not found');
 
