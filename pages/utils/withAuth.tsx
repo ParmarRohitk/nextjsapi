@@ -1,11 +1,9 @@
-// utils/withAuth.js
-
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getToken } from './auth';
 
 const withAuth = (WrappedComponent: FC<{}>) => {
-    console.log('check auth')
+    console.log('with auth')
 
     const AuthComponent = (props: { children: any; }) => {
         const router = useRouter();
@@ -20,6 +18,7 @@ const withAuth = (WrappedComponent: FC<{}>) => {
             } else if (router.pathname === '/auth/signin' || router.pathname === '/auth/signup') {
                 router.push('/auth/signin');
                 console.log('token not found');
+
 
             }
         }, []);
