@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signUpApi } from '../utils/api';
+import withAuth from '../utils/withAuth';
 
 const SignUp: React.FC = () => {
     const router = useRouter();
@@ -33,4 +34,5 @@ const SignUp: React.FC = () => {
     );
 };
 
-export default SignUp;
+// export default SignUp;
+export default withAuth(SignUp);

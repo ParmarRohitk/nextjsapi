@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signInApi } from '../utils/api';
 import { setToken } from '../utils/auth';
+import withAuth from '../utils/withAuth';
 
 const SignIn: React.FC = () => {
     const router = useRouter();
@@ -9,13 +10,14 @@ const SignIn: React.FC = () => {
     const [password, setPassword] = useState('');
 
     const handleSignIn = async () => {
+        console.log('Hey this is login')
         try {
             const response = await signInApi({ email, password });
             const token = response.token; // Assuming the API response contains a token field
 
             // Store the token in localStorage or a secure storage mechanism
             setToken(token);
-
+            console.log(token)
             // Redirect to dashboard after successful sign-in
             router.push('/dashboard');
         } catch (error) {
@@ -34,4 +36,9 @@ const SignIn: React.FC = () => {
     );
 };
 
-export default SignIn;
+// export default SignIn;
+export default withAuth(SignIn);
+
+
+
+

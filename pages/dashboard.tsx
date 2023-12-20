@@ -1,12 +1,23 @@
-import React from 'react';
+// Import necessary modules
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Testapi from '@/components/Hero/Testapi';
+import withAuth from './utils/withAuth';
+import Navbar from '@/components/Navbar';
+import '../app/globals.css';
+import { getToken } from './utils/auth';
 
-const Dashboard: React.FC = () => {
+// Define the Dashboard component
+const Dashboard = () => {
+    console.log('Dashboard')
+
     return (
-        <div>
+        <>
+            <Navbar />
+            <Testapi />
             <h1>Dashboard</h1>
-            {/* Add dashboard content and functionalities */}
-        </div>
+        </>
     );
 };
 
-export default Dashboard;
+export default withAuth(Dashboard);
