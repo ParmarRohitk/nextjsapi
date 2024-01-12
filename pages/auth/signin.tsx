@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { signInApi } from '../utils/api';
 import { setToken } from '../utils/auth';
 import withAuth from '../utils/withAuth';
+import '../../app/globals.css'
 
 const SignIn: React.FC = () => {
     const router = useRouter();
@@ -36,8 +37,8 @@ const SignIn: React.FC = () => {
     );
 };
 
-// export default SignIn;
-export default withAuth(SignIn);
+export default SignIn;
+// export default withAuth(SignIn);
 
 
 

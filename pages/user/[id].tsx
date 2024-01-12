@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import '../../app/globals.css'
 
 // Define the user type
 interface User {
@@ -48,15 +49,15 @@ const UserDetails = () => {
     }, [id]);
 
     if (!user) {
-        return <p>Loading...</p>;
+        return <p className="bg-dark text-orange-700 text-center my-[23%] animate-ping">Loading...</p>;
     }
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 ">
                 <Navbar />
                 <h1 className="text-3xl font-bold mb-4">User Details</h1>
-                <table className="w-full border-collapse border border-gray-300">
+                <table className="w-full border-collapse border border-gray-300 text-orange-400 ">
                     <thead className="bg-gray-200">
                         <tr>
                             <th className="p-2">ID</th>
